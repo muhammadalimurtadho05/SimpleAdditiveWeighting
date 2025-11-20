@@ -15,11 +15,9 @@
         <a href="index.php?page=Alternatif">Alternatif</a>
         <a href="index.php?page=Matriks">Matriks</a>
         <a href="index.php?page=Rank">Ranking</a>
-        <a href="index.php?page=logout" class="logout">Logout</a>
     </div>
     <div class="top-kanan">
-        <a href="index.php?page=profil" class="prof">Ali</a>
-        <img src="Asset/Img/profile.png" alt="" class="profile-photo">
+        <img src="Asset/Img/tobacco.png" alt="" class="Logo">
     </div>
 </header>
 <main class="content">

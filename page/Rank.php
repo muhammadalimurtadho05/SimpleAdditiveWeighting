@@ -4,9 +4,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $rank = getRankingFill($_POST['fill']);
 }
 ?>
-<h1>Ranking</h1>
-<form action="" method="POST">
-    <input type="text" class="fill" name="fill" value="<?=$_POST['fill']??'' ?>">
+<h1 class="fill">Ranking</h1>
+<form action="" method="POST" class="fill">
+    <input type="text" name="fill" value="<?=$_POST['fill']??'' ?>">
     <button type="submit">Filter</button>
 </form>
 <table>
