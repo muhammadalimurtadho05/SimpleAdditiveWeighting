@@ -4,19 +4,15 @@ function getKriteria(){
     $kriteria->execute();
     return $kriteria->fetchAll();
 }
-// function getKriteria2(){
-//     $kriteria = DBC->prepare("SELECT * FROM kriteria ORDER BY ID_KRITERIA ASC");
-//     $kriteria->execute();
-//     return $kriteria->fetchAll(PDO::FETCH_NUM);
-// }
+
 function getjumlahKriteria(){
     $kriteria = DBC->prepare("SELECT count(*) AS jumlah FROM kriteria");
     $kriteria->execute();
     return $kriteria->fetch();
 }
+
 function getSkor(){
-    $skor = DBC->prepare("
-        SELECT
+    $skor = DBC->prepare("SELECT
         alternatif.ID_ALTERNATIF AS A_ID_ALTERNATIF,
         alternatif.ALTERNATIF AS NAMA,
 
@@ -98,8 +94,8 @@ function updateSkor($array){
         echo $skor[$ind];
         echo "<br>";
         if(cek_skor($id_alt,$kt['ID_KRITERIA'])<1){
-            echo "ga nemu";
-            echo "<br>";
+            // echo "ga nemu";
+            // echo "<br>";
 
             $ins = DBC->prepare("INSERT INTO skor VALUES (null, :id_alt, :id_kt, :sk)");
             $ins->execute([
@@ -108,8 +104,8 @@ function updateSkor($array){
                 ':sk'=>$skor[$ind]
             ]);
         }else{
-            echo "nemu";
-            echo "<br>";
+            // echo "nemu";
+            // echo "<br>";
             $up = DBC->prepare("UPDATE skor SET SKOR = :skor WHERE ID_ALTERNATIF = :id_alt AND ID_KRITERIA = :id_kt");
             $up->execute([
                 ':id_alt' => $id_alt,
