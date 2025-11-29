@@ -1,25 +1,46 @@
 <?php
 $alternatif = getAlternatif();
+$kriteriaList = getKriteria();
+
 if(isset($_POST['tambah'])){
-    tambahAlt($_POST);
+    tambahAltDanSkor($_POST); 
     header("Location:index.php?page=Alternatif");
+    exit;
 }
+
 if(isset($_GET['hapus'])){
     hapusAlternatif();
     header("Location:index.php?page=Alternatif");
+    exit;
 }
 
 ?>
+
 <div class="top">
     <div class="kiri">
         <div class="page"><a href="index.php">Dashboard</a> / Alternatif</div>
         <h1>Alternatif</h1>
         <br>
         <a href="index.php?page=Alternatif&add" class="show">Tambah Alternatif Baru</a>
+        
         <?php if(isset($_GET['add'])):?>
         <form action="" method="POST" class="frkamar">
             <label for="nama">Nama Alternatif</label>
-            <input type="text" id="nama" name="alt"><br><br>
+            <input type="text" id="nama" name="alt" required>
+            <?php foreach ($kriteriaList as $kriteria): ?>
+            <div class="frkamar">
+                <label for="skor_<?= $kriteria['ID_KRITERIA'] ?>"><?= $kriteria['KRITERIA'] ?></label>
+                <input 
+                    type="text" 
+                    step="any" 
+                    id="skor_<?= $kriteria['ID_KRITERIA'] ?>" 
+                    name="skor[<?= $kriteria['ID_KRITERIA'] ?>]" 
+                    required  <?= $kriteria['KRITERIA'] ?>
+                ><br>
+            </div>
+            <?php endforeach; ?>
+            
+            <br>
             <button type="submit" class="btn-tambah" name="tambah">Tambah</button>
         </form>
         <?php endif?>
@@ -28,6 +49,7 @@ if(isset($_GET['hapus'])){
         
     </div>
 </div>
+
 <table>
     <thead>
         <tr>

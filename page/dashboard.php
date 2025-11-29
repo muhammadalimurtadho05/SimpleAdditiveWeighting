@@ -6,7 +6,7 @@
     </div>
 </div>
 <div class="dashboard_macam-macam">
-       <h1>Macam-Macam Tembakau di Indonesai</h1>
+       <h1>Macam-Macam Tembakau di Indonesia</h1>
     <div class="isi_macam">
         <h2>1. Kemloko</h2>
         <img src="Asset/Img/kemloko.jpg" class="kemloko" alt="Tembakau Kemloko">
