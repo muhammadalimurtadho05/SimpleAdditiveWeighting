@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 ?>
 <h1 class="fill">Ranking</h1>
 <form action="" method="POST" class="fill">
-    <input type="text" name="fill" value="<?=$_POST['fill']??'' ?>">
+    <input required type="text" name="fill" value="<?=$_POST['fill']??'' ?>">
     <button type="submit">Filter</button>
 </form>
 <table>

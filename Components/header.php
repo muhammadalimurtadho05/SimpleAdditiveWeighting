@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin</title>
+    <title>Simple Additive Weighting</title>
     <link rel="stylesheet" href="Asset/Css/style.css">
 </head>
 <body>
@@ -11,8 +11,8 @@
     <div class="logo">DSS | SAW</div>
     <div class="menu">
         <a href="index.php">Dashboard</a>
-        <a href="index.php?page=Kriteria">Kriteria</a>
         <a href="index.php?page=Alternatif">Alternatif</a>
+        <a href="index.php?page=Kriteria">Kriteria</a>
         <a href="index.php?page=Matriks">Matriks</a>
         <a href="index.php?page=Rank">Ranking</a>
     </div>

@@ -14,6 +14,7 @@ function getjumlahKriteria(){
     $kriteria->execute();
     return $kriteria->fetch();
 }
+
 function getSkor(){
     $skor = DBC->prepare("
         SELECT
@@ -58,6 +59,23 @@ function tambahKriteria($array){
     ]);
     header('Location:index.php?page=Kriteria');
     die;
+}
+
+function tambahAltDanSkor($array){
+    $db = DBC->prepare('INSERT INTO alternatif (ALTERNATIF) VALUES(:alt)');
+    $db->execute([':alt' => $array['alt']]);
+    $id_alt_baru = DBC->lastInsertId();
+    if (isset($array['skor']) && is_array($array['skor'])) {
+        foreach ($array['skor'] as $id_kriteria => $nilai_skor) {
+            if (is_numeric($id_kriteria) && is_numeric($nilai_skor)) {
+                $ins = DBC->prepare("INSERT INTO skor (ID_ALTERNATIF, ID_KRITERIA, SKOR) VALUES (:id_alt, :id_kt, :sk)");
+                $ins->execute([
+                    ':id_alt' => $id_alt_baru,
+                    ':id_kt' => $id_kriteria,
+                ]);
+            }
+        }
+    }
 }
 
 function getAlternatif(){
@@ -208,3 +226,4 @@ function getRankingFill($limit){
     $db->execute();
     return $db->fetchAll();
 }
+
